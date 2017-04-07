@@ -35,19 +35,46 @@ public class Lg {
             Log.d(">>>" + TAG + "<<<" + tag, ">>" + msg);
         }
     }
+
     public static void i(String tag, String msg) {
         if (SHOW) {
             Log.i(">>>" + TAG + "<<<" + tag, ">>" + msg);
         }
     }
+
     public static void w(String tag, String msg) {
         if (SHOW) {
             Log.w(">>>" + TAG + "<<<" + tag, ">>" + msg);
         }
     }
+
     public static void e(String tag, String msg) {
         if (SHOW) {
             Log.e(">>>" + TAG + "<<<" + tag, ">>" + msg);
+        }
+    }
+
+    public static void w(String tag, String msg, Throwable exc) {
+        if(SHOW) {
+            Log.w(">>>" + TAG + "<<< "+tag, " >> " + msg, exc);
+        }
+    }
+
+    public static void e(String tag, String msg, Throwable exc) {
+        if (SHOW) {
+            Log.e(">>>" + TAG + "<<< " + tag, " >> " + msg, exc);
+        }
+    }
+
+    public static void i(String tag, String msg, Throwable exc) {
+        if (SHOW) {
+            Log.i(">>>" + TAG + "<<< " + tag, " >> " + msg, exc);
+        }
+    }
+
+    public static void d(String tag, String msg, Object... args) {
+        if (SHOW) {
+            Log.d(">>>" + TAG + "<<< " + tag, " >> " + String.format(msg, args));
         }
     }
 }

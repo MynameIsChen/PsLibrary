@@ -1,21 +1,26 @@
-package ps.cxl.com.pslibrary;
+package ps.cxl.com.pslibrary.home;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import okhttp3.Headers;
 import okhttp3.ResponseBody;
 import ps.cxl.com.common.util.Lg;
+import ps.cxl.com.common.util.ToastUtil;
 import ps.cxl.com.core.api.TestApi;
 import ps.cxl.com.core.api.call.IApiCall;
 import ps.cxl.com.core.api.call.IApiCallback;
 import ps.cxl.com.core.api.manager.RestApiManager;
+import ps.cxl.com.pslibrary.R;
+import ps.cxl.com.pslibrary.base.BaseFragment;
 import ps.cxl.com.pslibrary.test.House;
 import ps.cxl.com.pslibrary.test.IHouse;
 import ps.cxl.com.pslibrary.test.ProxyHouse;
@@ -23,8 +28,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private final String TAG = "MainActivity";
+public class HomeFragment extends BaseFragment implements HomeContract.View, View.OnClickListener {
+    private static final String TAG = "HomeFragment";
+    private HomeContract.Presenter mPresenter;
+    private View mRoot;
+
     @BindView(R.id.name)
     TextView mName;
     @BindView(R.id.info)
@@ -46,11 +54,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RestApiManager mManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        HomePresenter.create(this);
+    }
+
+    @Nullable
+    @Override
+    @SuppressLint("InflateParams")
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (mRoot == null) {
+            mRoot = inflater.inflate(R.layout.fragment_home, null);
+        }
         init();
+        return mRoot;
+    }
+
+    @Override
+    public void setPresenter(HomeContract.Presenter presenter) {
+        mPresenter = presenter;
     }
 
     private void init() {
@@ -74,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.test:
+            case R.id.name:
                 Lg.d(TAG, "Do it.");
                 mHouse.getHouseInfo();
                 mHouse.signContract();
@@ -83,10 +105,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mIHouse.signContract();
                 mIHouse.payFees();
                 break;
-            case R.id.detail:
+            case R.id.info:
                 getDetail(mContent.getText().toString());
                 break;
-            case R.id.news:
+            case R.id.password:
                 getNewsDetail(mContent.getText().toString());
                 break;
         }
@@ -134,5 +156,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 super.error(errorType, code, message);
             }
         });
+    }
+
+    public void toast(){
+        ToastUtil.toast("toast from activity.");
     }
 }

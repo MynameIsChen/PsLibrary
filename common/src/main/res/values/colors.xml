@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="item_theme_new">#666666</color>
+
+    <color name="dialogplus_card_shadow">#D4D4D4</color>
+    <color name="dialogplus_black_overlay">#60000000</color>
+
+    <color name="black">#f000</color>
+    <color name="red">#ff00</color>
+    <color name="white">#ffff</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="color_333333">#333333</color>
+    <color name="color_aaaaaa">#AAAAAA</color>
+    <color name="color_ff8100">#ff8100</color>
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_0fe9d2">#0fe9d2</color>
+    <color name="color_translucent">#80000000</color>
+    <color name="color_40000">#40000000</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_f9f9f9">#f9f9f9</color>
+    <color name="color_d6d6d6">#d6d6d6</color>
+    <color name="color_e5e5e5">#e5e5e5</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_f4f4f4">#f4f4f4</color>
+    <color name="color_e1e1e1">#e1e1e1</color>
+    <color name="color_ececec">#ececec</color>
+    <color name="color_ff1400">#ff1400</color>
+    <color name="color_b1b1b1">#b1b1b1</color>
+    <color name="color_878787">#878787</color>
+</resources>

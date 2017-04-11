@@ -1,69 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ps.cxl.com.pslibrary.MainActivity">
 
     <EditText
-        android:id="@+id/info"
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="40dp"
         android:background="#0000"
         android:gravity="center_vertical|start"
         android:textColor="@color/black"
-        android:textSize="36px"/>
+        android:textSize="24dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <include
+        layout="@layout/parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/info"
-        android:padding="20px"
-        android:text="test"
-        android:textColor="@color/black"
-        android:textSize="36px"/>
-
-    <TextView
-        android:id="@+id/detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/info"
-        android:layout_toRightOf="@id/test"
-        android:padding="20px"
-        android:text="detail"
-        android:textColor="@color/black"
-        android:textSize="36px"/>
-
-    <TextView
-        android:id="@+id/news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/info"
-        android:layout_toRightOf="@id/detail"
-        android:padding="20px"
-        android:text="news"
-        android:textColor="@color/black"
-        android:textSize="36px"/>
+        android:layout_below="@+id/info"/>
 
     <ProgressBar
+        android:id="@+id/progressbar"
         style="@style/myProgressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:indeterminateDuration="700"/>
-
-    <include layout="@layout/parent"/>
+        android:indeterminateDuration="700"
+        android:visibility="gone"/>
 </RelativeLayout>

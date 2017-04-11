@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/line_common"
+    android:orientation="vertical"
+    android:showDividers="end">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:divider="@drawable/line_common"
+        android:dividerPadding="1px"
+        android:orientation="vertical"
+        android:showDividers="middle|beginning|end">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/icon"
+            android:text="name"/>
+
+        <TextView
+            android:id="@+id/info"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/icon"
+            android:text="info"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:divider="@drawable/line_common"
+        android:dividerPadding="1px"
+        android:orientation="vertical"
+        android:showDividers="middle|end|beginning">
+
+        <TextView
+            android:id="@+id/password"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/icon"
+            android:text="password"/>
+
+        <TextView
+            android:id="@+id/safe"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/icon"
+            android:text="safe"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/line_common"/>
+
+    <TextView
+        android:id="@+id/set"
+        style="@style/TextStyle"
+        android:drawableLeft="@drawable/icon"
+        android:text="set"/>
+</LinearLayout>

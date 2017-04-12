@@ -6,7 +6,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "ps.cxl.com.pslibrary"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -31,6 +31,7 @@ android {
         testCompile 'junit:junit:4.12'
         compile project(path: ':common')
         compile project(path: ':core')
+        compile project(path: ':third')
     }
 }
 

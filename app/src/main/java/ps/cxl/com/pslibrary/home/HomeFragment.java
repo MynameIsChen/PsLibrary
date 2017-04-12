@@ -10,7 +10,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import okhttp3.Headers;
 import okhttp3.ResponseBody;
 import ps.cxl.com.common.util.Lg;
@@ -30,6 +34,9 @@ import retrofit2.Response;
 
 public class HomeFragment extends BaseFragment implements HomeContract.View, View.OnClickListener {
     private static final String TAG = "HomeFragment";
+    @BindView(R.id.animation)
+    LottieAnimationView mAnimation;
+    Unbinder unbinder;
     private HomeContract.Presenter mPresenter;
     private View mRoot;
 
@@ -67,6 +74,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
             mRoot = inflater.inflate(R.layout.fragment_home, null);
         }
         init();
+        unbinder = ButterKnife.bind(this, mRoot);
         return mRoot;
     }
 
@@ -158,7 +166,13 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         });
     }
 
-    public void toast(){
+    public void toast() {
         ToastUtil.toast("toast from activity.");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

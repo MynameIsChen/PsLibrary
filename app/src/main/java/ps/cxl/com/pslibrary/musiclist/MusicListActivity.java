@@ -27,6 +27,7 @@ public class MusicListActivity extends BaseActivity {
     }
 
     private void initView() {
+        mTitle.setTitleText("音乐列表");
         mTitle.setOnBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

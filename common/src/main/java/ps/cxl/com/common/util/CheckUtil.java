@@ -11,12 +11,13 @@ import java.util.Set;
 public class CheckUtil {
 
     public static boolean isEmpty(String s) {
-        return s.length() == 0 || s == null;
+        return s == null || s.length() == 0;
     }
 
     public static boolean isNonEmpty(String s) {
         return !isEmpty(s);
     }
+
     public static boolean isEmpty(Object o) {
         return o == null;
     }
@@ -26,7 +27,7 @@ public class CheckUtil {
     }
 
     public static boolean isEmpty(Object[] o) {
-        return o.length == 0 || o == null;
+        return o == null || o.length == 0;
     }
 
     public static boolean isNonEmpty(Object[] o) {
@@ -34,7 +35,7 @@ public class CheckUtil {
     }
 
     public static boolean isEmpty(List list) {
-        return list.size() == 0 || list == null;
+        return list == null || list.size() == 0;
     }
 
     public static boolean isNonEmpty(List list) {
@@ -42,7 +43,7 @@ public class CheckUtil {
     }
 
     public static boolean isEmpty(Set set) {
-        return set.size() == 0 || set == null;
+        return set == null || set.size() == 0;
     }
 
     public static boolean isNonEmpty(Set set) {
@@ -50,7 +51,7 @@ public class CheckUtil {
     }
 
     public static boolean isEmpty(Map map) {
-        return map.size() == 0 || map == null;
+        return map == null || map.size() == 0;
     }
 
     public static boolean isNonEmpty(Map map) {

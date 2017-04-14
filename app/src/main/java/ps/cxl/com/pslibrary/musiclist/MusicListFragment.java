@@ -56,6 +56,6 @@ public class MusicListFragment extends BaseFragment implements MusicListContract
 
     @Override
     public void setMusicList(MusicListEntity entity) {
-
+        mAdapter.setData(entity.getList());
     }
 }

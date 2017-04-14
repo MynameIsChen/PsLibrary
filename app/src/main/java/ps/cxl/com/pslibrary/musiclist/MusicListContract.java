@@ -13,6 +13,6 @@ public interface MusicListContract extends IContract {
     }
 
     abstract class Presenter extends BasePresenter {
-        abstract MusicListEntity findMusicList(ContentResolver resolver);
+        abstract void findMusicList(ContentResolver resolver);
     }
 }

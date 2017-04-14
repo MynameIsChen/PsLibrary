@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,6 +16,8 @@ import ps.cxl.com.pslibrary.base.adapter.OnItemClickedListener;
 import ps.cxl.com.pslibrary.base.adapter.SingleTypeViewAdapter;
 
 public class MusicListAdapter extends SingleTypeViewAdapter<MusicEntity> {
+    public static final int MUSIC_ITEM = 0;
+    public static final int MUSIC_MORE = 1;
 
     public MusicListAdapter(List<MusicEntity> list, Context context) {
         super(list, context);
@@ -41,22 +42,37 @@ public class MusicListAdapter extends SingleTypeViewAdapter<MusicEntity> {
         MusicListViewHolder musiclistViewHolder = (MusicListViewHolder) holder;
         MusicEntity entity = getItem(musiclistViewHolder.getPosition());
         MusicListViewHolder viewHolder = (MusicListViewHolder) holder;
-        viewHolder.mIcon.setBackgroundResource(R.drawable.ic_launcher);
+
+        viewHolder.mIndex.setText(String.valueOf(viewHolder.getPosition() + 1));
         viewHolder.mTitle.setText(entity.getTitle());
         viewHolder.mArtist.setText(entity.getArtist().getName());
     }
 
     static class MusicListViewHolder extends ViewHolder {
-        @BindView(R.id.icon)
-        ImageView mIcon;
+        @BindView(R.id.index)
+        TextView mIndex;
         @BindView(R.id.title)
         TextView mTitle;
         @BindView(R.id.artist)
         TextView mArtist;
+        @BindView(R.id.more)
+        TextView mMore;
 
-        public MusicListViewHolder(View view, OnItemClickedListener listener) {
+        public MusicListViewHolder(View view, final OnItemClickedListener listener) {
             super(view, listener);
-            ButterKnife.bind(this,view);
+            ButterKnife.bind(this, view);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(MUSIC_ITEM, getPosition(), null);
+                }
+            });
+            mMore.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(MUSIC_MORE, getPosition(), null);
+                }
+            });
         }
     }
 }

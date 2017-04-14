@@ -1,6 +1,5 @@
 package ps.cxl.com.common.util;
 
-import android.content.Context;
 import android.text.TextPaint;
 import android.widget.TextView;
 
@@ -95,9 +94,9 @@ public class CharUtil {
 
     /**
      * 计算以固定中文长度，控制控件宽度，来获取需要显示的内容
-     * */
-    public static String getMaxString(Context context, String info, int num) {
-        TextPaint paint = new TextView(context).getPaint();
+     */
+    public static String getMaxString(TextView textView, String info, int num) {
+        TextPaint paint = textView.getPaint();
         float itemWidth = paint.measureText("探");
 
         String result = "";
@@ -120,5 +119,15 @@ public class CharUtil {
         }
 
         return result;
+    }
+
+    public static int getStringNum(TextView textView, String info) {
+        TextPaint paint = textView.getPaint();
+        float itemWidth = paint.measureText("探");
+        float allWidth = 0;
+        if (CheckUtil.isNonEmpty(info)) {
+            allWidth = paint.measureText(info);
+        }
+        return (int) ((allWidth + itemWidth - 1) / itemWidth);
     }
 }

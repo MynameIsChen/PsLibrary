@@ -2,4 +2,9 @@
     <string name="app_name">PsLibrary</string>
     <string name="cancel">取消</string>
     <string name="setting">设置</string>
+
+    <string name="loading_text">别急,内容加载中...</string>
+    <string name="loading_error_text">噗呲~加载失败了</string>
+    <string name="reload_text">重新加载</string>
+    <string name="load_empty_text">~还没有内容呐~</string>
 </resources>

@@ -14,7 +14,6 @@ import com.airbnb.lottie.LottieAnimationView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import okhttp3.Headers;
 import okhttp3.ResponseBody;
 import ps.cxl.com.common.util.Lg;
@@ -25,6 +24,7 @@ import ps.cxl.com.core.api.call.IApiCallback;
 import ps.cxl.com.core.api.manager.RestApiManager;
 import ps.cxl.com.pslibrary.R;
 import ps.cxl.com.pslibrary.base.BaseFragment;
+import ps.cxl.com.pslibrary.musiclist.MusicListActivity;
 import ps.cxl.com.pslibrary.test.House;
 import ps.cxl.com.pslibrary.test.IHouse;
 import ps.cxl.com.pslibrary.test.ProxyHouse;
@@ -36,7 +36,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
     private static final String TAG = "HomeFragment";
     @BindView(R.id.animation)
     LottieAnimationView mAnimation;
-    Unbinder unbinder;
     private HomeContract.Presenter mPresenter;
     private View mRoot;
 
@@ -72,9 +71,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (mRoot == null) {
             mRoot = inflater.inflate(R.layout.fragment_home, null);
+            ButterKnife.bind(this, mRoot);
         }
         init();
-        unbinder = ButterKnife.bind(this, mRoot);
         return mRoot;
     }
 
@@ -93,6 +92,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         mName.setOnClickListener(this);
         mInfo.setOnClickListener(this);
         mPassword.setOnClickListener(this);
+        mSet.setOnClickListener(this);
     }
 
     private void initProxy() {
@@ -118,6 +118,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
                 break;
             case R.id.password:
                 getNewsDetail(mContent.getText().toString());
+                break;
+            case R.id.set:
+                MusicListActivity.launch(getContext());
                 break;
         }
     }
@@ -168,11 +171,5 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
 
     public void toast() {
         ToastUtil.toast("toast from activity.");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }

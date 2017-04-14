@@ -9,7 +9,7 @@
     <color name="red">#ff00</color>
     <color name="white">#ffff</color>
     <color name="transparent">#00000000</color>
-
+    <color name="colorPrimary">#3F51B5</color>
     <color name="color_333333">#333333</color>
     <color name="color_aaaaaa">#AAAAAA</color>
     <color name="color_ff8100">#ff8100</color>

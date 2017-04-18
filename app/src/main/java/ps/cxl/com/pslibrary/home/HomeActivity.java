@@ -1,5 +1,7 @@
 package ps.cxl.com.pslibrary.home;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import butterknife.ButterKnife;
@@ -22,5 +24,9 @@ public class HomeActivity extends BaseActivity {
     public void onBackPressed() {
         mFragment.toast();
         super.onBackPressed();
+    }
+
+    public static void lanuch(Context context){
+        context.startActivity(new Intent(context,HomeActivity.class));
     }
 }

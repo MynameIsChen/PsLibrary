@@ -34,8 +34,6 @@ import retrofit2.Response;
 
 public class HomeFragment extends BaseFragment implements HomeContract.View, View.OnClickListener {
     private static final String TAG = "HomeFragment";
-//    @BindView(R.id.animation)
-//    LottieAnimationView mAnimation;
     private HomeContract.Presenter mPresenter;
     private View mRoot;
 

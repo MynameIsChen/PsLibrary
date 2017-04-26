@@ -15,7 +15,6 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".splash.SplashActivity"
             android:screenOrientation="portrait">
@@ -27,6 +26,7 @@
         </activity>
         <activity
             android:name=".home.HomeActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".musiclist.MusicListActivity"
@@ -34,6 +34,8 @@
         <activity
             android:name=".musicinfo.MusicInfoActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".preview.PreviewActivity">
+        </activity>
     </application>
 
 </manifest>

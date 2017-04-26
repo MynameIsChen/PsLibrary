@@ -35,18 +35,19 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
     }
 
     private static class LaunchHandler extends Handler {
-        private WeakReference<Context> mContext;
+        private WeakReference<SplashActivity> mContext;
 
-        LaunchHandler(Context context) {
+        LaunchHandler(SplashActivity context) {
             mContext = new WeakReference<>(context);
         }
 
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Context context = mContext.get();
+            SplashActivity context = mContext.get();
             if (context != null) {
                 HomeActivity.lanuch(context);
+                context.finish();
             }
         }
     }

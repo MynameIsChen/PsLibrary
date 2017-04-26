@@ -25,6 +25,7 @@ import ps.cxl.com.core.api.manager.RestApiManager;
 import ps.cxl.com.pslibrary.R;
 import ps.cxl.com.pslibrary.base.BaseFragment;
 import ps.cxl.com.pslibrary.musiclist.MusicListActivity;
+import ps.cxl.com.pslibrary.preview.PreviewActivity;
 import ps.cxl.com.pslibrary.test.House;
 import ps.cxl.com.pslibrary.test.IHouse;
 import ps.cxl.com.pslibrary.test.ProxyHouse;
@@ -90,6 +91,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         mName.setOnClickListener(this);
         mInfo.setOnClickListener(this);
         mPassword.setOnClickListener(this);
+        mSafe.setOnClickListener(this);
         mSet.setOnClickListener(this);
     }
 
@@ -116,6 +118,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
                 break;
             case R.id.password:
                 getNewsDetail(mContent.getText().toString());
+                break;
+            case R.id.safe:
+                PreviewActivity.lanuch(getContext());
                 break;
             case R.id.set:
                 MusicListActivity.launch(getContext());

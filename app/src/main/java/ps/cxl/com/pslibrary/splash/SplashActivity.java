@@ -1,6 +1,5 @@
 package ps.cxl.com.pslibrary.splash;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +13,7 @@ import butterknife.ButterKnife;
 import ps.cxl.com.pslibrary.R;
 import ps.cxl.com.pslibrary.base.BaseActivity;
 import ps.cxl.com.pslibrary.home.HomeActivity;
+import ps.cxl.com.pslibrary.utils.TestUtil;
 
 public class SplashActivity extends BaseActivity implements SplashContract.View {
     @BindView(R.id.animation)
@@ -27,6 +27,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
         ButterKnife.bind(this);
         SplashPresenter.create(this);
         new LaunchHandler(this).sendEmptyMessageDelayed(0, 3000);
+        TestUtil.test();
     }
 
     @Override
